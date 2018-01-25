@@ -25,18 +25,19 @@ namespace ABServer
         public RegistrationForm()
         {
             InitializeComponent();
-            newClient = new Clients();
-            House.DataContext = newClient;
-            Housing.DataContext = newClient;
-            Street.DataContext = newClient;
-            Office.DataContext = newClient;
-            PhoneNumber.DataContext = newClient;
-            Building.DataContext = newClient;
-            ClientName.DataContext = newClient;
-            EndDate.DataContext = newClient;
-            Shedule.DataContext = newClient;
             using (ClientsDBEntities db = new ClientsDBEntities())
             {
+           // newClient = new Clients();
+                newClient = new Clients();
+                /*House.DataContext = newClient;
+                Housing.DataContext = newClient;
+                Street.DataContext = newClient;
+                Office.DataContext = newClient;
+                PhoneNumber.DataContext = newClient;
+                Building.DataContext = newClient;
+                ClientName.DataContext = newClient;
+                EndDate.DataContext = newClient;
+                Shedule.DataContext = newClient;*/
                 int lastId = db.Clients.Count() > 0 ? db.Clients.OrderByDescending(c => c.ClientId).First().ClientId : 1;
                 newClient.ClientId = lastId + 1;
             }

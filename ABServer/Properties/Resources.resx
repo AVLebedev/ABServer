@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ip" xml:space="preserve">
-    <value>127.0.0.1</value>
+    <value>192.168.56.1</value>
     <comment>локальный ip-адрес</comment>
   </data>
   <data name="port" xml:space="preserve">

@@ -12,19 +12,16 @@ namespace ABServer
     using System;
     using System.Collections.Generic;
     
-    public partial class Clients
+    public partial class ClientsView1
     {
         public int ClientId { get; set; }
-        public string Пароль { get; set; }
         public string НазваниеКлиента { get; set; }
         public string Улица { get; set; }
         public int Дом { get; set; }
         public Nullable<int> Корпус { get; set; }
         public Nullable<int> Строение { get; set; }
         public Nullable<int> Оффис { get; set; }
-        public Nullable<System.DateTime> ДоговорИстекает { get; set; }
         public string Телефон { get; set; }
-        public string РежимРаботы { get; set; }
-        public Nullable<bool> Активен { get; set; }
+        public Nullable<System.DateTime> ДоговорИстекает { get; set; }
     }
 }

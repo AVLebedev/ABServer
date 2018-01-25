@@ -13,7 +13,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Data.Entity;
 
 namespace ABServer
 {
@@ -22,19 +21,18 @@ namespace ABServer
     /// </summary>
     public partial class ClientsViewForm : Window
     {
-       //DbSet<Clients> dbSet { get; set; }
+        DbSet<Clients> dbSet;
        // IEnumerable<Clients> clients;
         public ClientsViewForm()
         {
             InitializeComponent();
-         /*    using (ClientsDBEntities db = new ClientsDBEntities())
+            using (ClientsDBEntities db = new ClientsDBEntities())
             {
                // clients = db.Clients.Select(c => c).ToList<Clients>();
-                this.dbSet = db.Set<Clients>();
+                dbSet = db.Set<Clients>();
                 dbSet.Load();
-                var dataToShow = from c in db.Clients select new { c.ClientId, c.Пароль, c.НазваниеКлиента, c.Улица, c.Дом, c.Корпус, c.Строение, c.Оффис, c.Телефон, c.ДоговорИстекает, c.Активен };
-                this.dataGrid.ItemsSource = dataToShow.ToList();//dbSet.Local.ToBindingList();
-            } */
+                dataGrid.ItemsSource = dbSet.Local.ToBindingList();
+            } 
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -45,8 +43,8 @@ namespace ABServer
         {
             using (ClientsDBEntities db = new ClientsDBEntities())
             {
-               // db.ChangeTracker.DetectChanges();
-               // db.SaveChanges();
+                db.ChangeTracker.DetectChanges();
+                db.SaveChanges();
             }
         }
 
@@ -54,8 +52,6 @@ namespace ABServer
         {
             using (ClientsDBEntities db = new ClientsDBEntities())
             {
-                Clients c = (Clients)e.Row.DataContext;
-                //db.Entry(c).State = EntityState.Modified;
                 db.SaveChanges();
             }
         }

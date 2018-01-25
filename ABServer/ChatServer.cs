@@ -150,7 +150,7 @@ namespace ABServer
             IPAddress ipaLocal = ipAddress;
 
             // Создание подключения
-            tlsClient = new TcpListener(ipaLocal, Convert.ToInt32(Properties.Resources.port));
+            tlsClient = new TcpListener(ipaLocal, Properties.Resources.port);
 
             // Старт
             tlsClient.Start();

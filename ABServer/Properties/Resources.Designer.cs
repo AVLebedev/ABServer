@@ -61,7 +61,7 @@ namespace ABServer.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на 127.0.0.1.
+        ///   Ищет локализованную строку, похожую на 192.168.56.1.
         /// </summary>
         internal static string ip {
             get {
@@ -72,9 +72,9 @@ namespace ABServer.Properties {
         /// <summary>
         ///   Ищет локализованную строку, похожую на 1234.
         /// </summary>
-        internal static string port {
+        internal static int port {
             get {
-                return ResourceManager.GetString("port", resourceCulture);
+                return Convert.ToInt32(ResourceManager.GetObject("port", resourceCulture));
             }
         }
     }

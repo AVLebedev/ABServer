@@ -53,10 +53,6 @@ namespace ABServer
             InitializeConnection();
         }
 
-        private void optionsBtn_Click(object sender, RoutedEventArgs e)
-        {
-        }
-
         private void InitializeConnection()
         {
             bool statusOK = StartServer();
@@ -84,25 +80,20 @@ namespace ABServer
                 var clientsList = db.Clients.Where(c => c.Активен == true);
                 foreach (Clients c in clientsList)
                 {
-                    if (ValidateContract(c))
-                    {
+                    //if (c.ValidateContract())
+                    //{
                         idsListBox.Items.Add(c.ClientId);
                         namesListBox.Items.Add(c.НазваниеКлиента);
                         stateListBox.Items.Add("");
-                    }
-                    else
-                    {
-                        db.Entry(c).State = System.Data.Entity.EntityState.Modified;
-                    }
+                    //}
                 }
-                db.SaveChanges();
             }
             //Запуск подключения
             InitializeConnection();
         }  
 
 
-#region Вспомогательные методы
+#region Сетевые и вспомогательные методы
         
         const int port = 1234;
         ChatServer mainServer;
@@ -123,17 +114,47 @@ namespace ABServer
             }
         }
 
-        /// <summary>
-        /// Проверяет дату договора клиента и меняет его статус активности, если договор просрочен
-        /// </summary>
-        /// <param name="client"></param>
-        /// <returns></returns>
-        bool ValidateContract(Clients client)
+        private void optionsBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (client.ДоговорИстекает < DateTime.Now) 
-                client.Активен = false;
-            return client.Активен ?? false;
         }
+/*
+        /// <summary>
+        /// Получает сигнал от клиента, возвращает id клиента
+        /// </summary>
+        /// <returns></returns>
+        private int GetSignalFromClient()
+        {
+            StreamReader reader = new StreamReader();
+            try
+            {
+                int id = Convert.ToInt32(reader.ReadLine());
+                return id;
+            }
+            catch
+            {
+                return -1;
+            }
+        } */
+      
+      /*  private string read()
+        {
+            try
+            {
+                string[] rtext = reader.ReadLine().Split(' ');
+                text_data.Text += "Переданные числа:" + Environment.NewLine;
+                foreach (string n in rtext)
+                {
+                    text_data.Text += n + ' ';
+                }
+                text_data.Text += Environment.NewLine;
+
+                return rtext.ToString();
+            }
+            catch
+            {
+                return "";
+            }
+        }*/
 
 #endregion
 
