@@ -25,14 +25,14 @@ namespace ABServer
         public RegistrationForm()
         {
             InitializeComponent();
+            newClient = (Clients)formGrid.DataContext;
             using (ClientsDBEntities db = new ClientsDBEntities())
             {
-                newClient = (Clients)formGrid.DataContext;
                 int lastId = db.Clients.Count() > 0 ? db.Clients.OrderByDescending(c => c.ClientId).First().ClientId : 1;
                 newClient.ClientId = lastId + 1;
             }
-            //this.newClient.Пароль = "";
-            //this.newClient.Активен = false;
+            newClient.Пароль = "";
+            newClient.Активен = false;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -49,23 +49,6 @@ namespace ABServer
                 {
                     ValidationSummary.Content = "Исправьте ошибки";
                 }
-               /* Clients newClient = new Clients()
-                {
-                    ClientId = Convert.ToInt32(Id.Content),
-                    НазваниеКлиента = ClientName.Text,
-                    Улица = Street.Text,
-                    Дом = Convert.ToInt32(House.Text),
-                    Корпус = Convert.ToInt32(Housing.Text),
-                    Строение = Convert.ToInt32(Building.Text),
-                    Офис = Convert.ToInt32(Office.Text),
-                    Телефон = PhoneNumber.Text,
-                    ДоговорИстекает = Convert.ToDateTime(EndDate.Text)
-                };
-                PasswordForm passwordForm = new PasswordForm(newClient); 
-                passwordForm.Show(); */
-                //ValidationSummary.Content = newClient.Error;
-                //this.Close(); 
-
             }
             catch {
                 ValidationSummary.Content = "Исправьте ошибки";
