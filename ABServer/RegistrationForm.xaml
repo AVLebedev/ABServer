@@ -1,14 +1,14 @@
 ﻿<Window x:Class="ABServer.RegistrationForm"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:ABServer.ViewModels"
+        xmlns:local="clr-namespace:ABServer"
         Title="Регистрация нового клиента" Height="664" Width="579" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
 
     <Window.Resources>
-        <local:ViewModel x:Key="DataContext"/>
+        <local:Clients x:Key="newClient"/>
     </Window.Resources>
 
-    <Grid DataContext="{StaticResource DataContext}" Margin="0,0,0,-20">
+    <Grid Name="formGrid" DataContext="{StaticResource newClient}" Margin="0,0,0,-20">
         <TextBox Name="ClientName" HorizontalAlignment="Left" Height="26" Margin="199,66,0,0" TextWrapping="Wrap" Text="{Binding Path=НазваниеКлиента, ValidatesOnExceptions=true, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="287" FontSize="14" GotFocus="Element_GetFocus"/>
         <TextBox Name="Street" HorizontalAlignment="Left" Height="26" Margin="199,148,0,0" TextWrapping="Wrap" Text="{Binding Path=Улица, ValidatesOnExceptions=true, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="287" FontSize="14" GotFocus="Element_GetFocus"/>
         <TextBox Name="House" HorizontalAlignment="Left" Height="26" Margin="199,204,0,0" TextWrapping="Wrap" Text="{Binding Clients.Дом, ValidatesOnDataErrors=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="287" FontSize="14" GotFocus="Element_GetFocus"/>

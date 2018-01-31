@@ -21,9 +21,6 @@ namespace ABServer
 {    
     public partial class MainWindow : Window
     {
-        //System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
-        const string serverIp = "192.168.56.1";
-
         public MainWindow()
         {
             InitializeComponent();

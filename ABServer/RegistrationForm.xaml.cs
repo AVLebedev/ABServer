@@ -27,17 +27,7 @@ namespace ABServer
             InitializeComponent();
             using (ClientsDBEntities db = new ClientsDBEntities())
             {
-           // newClient = new Clients();
-                newClient = new Clients();
-                /*House.DataContext = newClient;
-                Housing.DataContext = newClient;
-                Street.DataContext = newClient;
-                Office.DataContext = newClient;
-                PhoneNumber.DataContext = newClient;
-                Building.DataContext = newClient;
-                ClientName.DataContext = newClient;
-                EndDate.DataContext = newClient;
-                Shedule.DataContext = newClient;*/
+                newClient = (Clients)formGrid.DataContext;
                 int lastId = db.Clients.Count() > 0 ? db.Clients.OrderByDescending(c => c.ClientId).First().ClientId : 1;
                 newClient.ClientId = lastId + 1;
             }
@@ -51,9 +41,6 @@ namespace ABServer
             {
                 if (newClient != null)
                 {
-                    newClient.НазваниеКлиента = ClientName.Text;
-                    newClient.Улица = Street.Text;
-                    newClient.Дом = Convert.ToInt32(House.Text);
                     PasswordForm passwordForm = new PasswordForm(newClient);
                     passwordForm.Show();
                     this.Hide();

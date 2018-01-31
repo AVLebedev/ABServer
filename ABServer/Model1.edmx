@@ -7,19 +7,6 @@
       <Schema Namespace="Хранилище ClientsDBModel" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="Хранилище ClientsDBModelContainer">
           <EntitySet Name="Clients" EntityType="Хранилище ClientsDBModel.Clients" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ClientsView1" EntityType="Хранилище ClientsDBModel.ClientsView1" store:Type="Views" store:Schema="dbo" store:Name="ClientsView1">
-            <DefiningQuery>SELECT 
-      [ClientsView1].[ClientId] AS [ClientId], 
-      [ClientsView1].[НазваниеКлиента] AS [НазваниеКлиента], 
-      [ClientsView1].[Улица] AS [Улица], 
-      [ClientsView1].[Дом] AS [Дом], 
-      [ClientsView1].[Корпус] AS [Корпус], 
-      [ClientsView1].[Строение] AS [Строение], 
-      [ClientsView1].[Оффис] AS [Оффис], 
-      [ClientsView1].[Телефон] AS [Телефон], 
-      [ClientsView1].[ДоговорИстекает] AS [ДоговорИстекает]
-      FROM [dbo].[ClientsView1] AS [ClientsView1]</DefiningQuery>
-          </EntitySet>
         </EntityContainer>
         <EntityType Name="Clients">
           <Key>
@@ -32,30 +19,11 @@
           <Property Name="Дом" Type="int" Nullable="false" />
           <Property Name="Корпус" Type="int" />
           <Property Name="Строение" Type="int" />
-          <Property Name="Оффис" Type="int" />
+          <Property Name="Офис" Type="int" />
           <Property Name="ДоговорИстекает" Type="date" />
           <Property Name="Телефон" Type="nvarchar" MaxLength="12" />
           <Property Name="РежимРаботы" Type="nvarchar" MaxLength="30" />
           <Property Name="Активен" Type="bit" />
-        </EntityType>
-        <!--Ошибки, обнаруженные при создании:
-      предупреждение 6002: В таблице или представлении "D:\FILES\DOCUMENTS\УЧЁБА\ИКСИС\ALARMBUTTON\ABSERVER\ABSERVER\CLIENTSDB.MDF.dbo.ClientsView1" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.
-      -->
-        <EntityType Name="ClientsView1">
-          <Key>
-            <PropertyRef Name="ClientId" />
-            <PropertyRef Name="Улица" />
-            <PropertyRef Name="Дом" />
-          </Key>
-          <Property Name="ClientId" Type="int" Nullable="false" />
-          <Property Name="НазваниеКлиента" Type="nvarchar" MaxLength="20" />
-          <Property Name="Улица" Type="nvarchar" Nullable="false" MaxLength="20" />
-          <Property Name="Дом" Type="int" Nullable="false" />
-          <Property Name="Корпус" Type="int" />
-          <Property Name="Строение" Type="int" />
-          <Property Name="Оффис" Type="int" />
-          <Property Name="Телефон" Type="nvarchar" MaxLength="12" />
-          <Property Name="ДоговорИстекает" Type="date" />
         </EntityType>
       </Schema>
     </edmx:StorageModels>
@@ -64,7 +32,6 @@
       <Schema Namespace="ClientsDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ClientsDBEntities" p1:LazyLoadingEnabled="true">
           <EntitySet Name="Clients" EntityType="ClientsDBModel.Clients" />
-          <EntitySet Name="ClientsView1" EntityType="ClientsDBModel.ClientsView1" />
         </EntityContainer>
         <EntityType Name="Clients">
           <Key>
@@ -77,27 +44,11 @@
           <Property Name="Дом" Type="Int32" Nullable="false" />
           <Property Name="Корпус" Type="Int32" />
           <Property Name="Строение" Type="Int32" />
-          <Property Name="Оффис" Type="Int32" />
+          <Property Name="Офис" Type="Int32" />
           <Property Name="ДоговорИстекает" Type="DateTime" Precision="0" />
           <Property Name="Телефон" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
           <Property Name="РежимРаботы" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
           <Property Name="Активен" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="ClientsView1">
-          <Key>
-            <PropertyRef Name="ClientId" />
-            <PropertyRef Name="Улица" />
-            <PropertyRef Name="Дом" />
-          </Key>
-          <Property Name="ClientId" Type="Int32" Nullable="false" />
-          <Property Name="НазваниеКлиента" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
-          <Property Name="Улица" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
-          <Property Name="Дом" Type="Int32" Nullable="false" />
-          <Property Name="Корпус" Type="Int32" />
-          <Property Name="Строение" Type="Int32" />
-          <Property Name="Оффис" Type="Int32" />
-          <Property Name="Телефон" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
-          <Property Name="ДоговорИстекает" Type="DateTime" Precision="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -115,26 +66,11 @@
                 <ScalarProperty Name="Дом" ColumnName="Дом" />
                 <ScalarProperty Name="Корпус" ColumnName="Корпус" />
                 <ScalarProperty Name="Строение" ColumnName="Строение" />
-                <ScalarProperty Name="Оффис" ColumnName="Оффис" />
+                <ScalarProperty Name="Офис" ColumnName="Офис" />
                 <ScalarProperty Name="ДоговорИстекает" ColumnName="ДоговорИстекает" />
                 <ScalarProperty Name="Телефон" ColumnName="Телефон" />
                 <ScalarProperty Name="РежимРаботы" ColumnName="РежимРаботы" />
                 <ScalarProperty Name="Активен" ColumnName="Активен" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ClientsView1">
-            <EntityTypeMapping TypeName="ClientsDBModel.ClientsView1">
-              <MappingFragment StoreEntitySet="ClientsView1">
-                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
-                <ScalarProperty Name="НазваниеКлиента" ColumnName="НазваниеКлиента" />
-                <ScalarProperty Name="Улица" ColumnName="Улица" />
-                <ScalarProperty Name="Дом" ColumnName="Дом" />
-                <ScalarProperty Name="Корпус" ColumnName="Корпус" />
-                <ScalarProperty Name="Строение" ColumnName="Строение" />
-                <ScalarProperty Name="Оффис" ColumnName="Оффис" />
-                <ScalarProperty Name="Телефон" ColumnName="Телефон" />
-                <ScalarProperty Name="ДоговорИстекает" ColumnName="ДоговорИстекает" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

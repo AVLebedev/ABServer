@@ -21,7 +21,7 @@ namespace ABServer
         public int Дом { get; set; }
         public Nullable<int> Корпус { get; set; }
         public Nullable<int> Строение { get; set; }
-        public Nullable<int> Оффис { get; set; }
+        public Nullable<int> Офис { get; set; }
         public Nullable<System.DateTime> ДоговорИстекает { get; set; }
         public string Телефон { get; set; }
         public string РежимРаботы { get; set; }

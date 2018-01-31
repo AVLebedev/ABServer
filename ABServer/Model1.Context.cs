@@ -26,6 +26,5 @@ namespace ABServer
         }
     
         public DbSet<Clients> Clients { get; set; }
-        public DbSet<ClientsView1> ClientsView1 { get; set; }
     }
 }
