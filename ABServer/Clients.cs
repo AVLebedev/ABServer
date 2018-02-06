@@ -24,7 +24,7 @@ namespace ABServer
         public Nullable<int> Офис { get; set; }
         public Nullable<System.DateTime> ДоговорИстекает { get; set; }
         public string Телефон { get; set; }
+        public bool Активен { get; set; }
         public string РежимРаботы { get; set; }
-        public Nullable<bool> Активен { get; set; }
     }
 }
