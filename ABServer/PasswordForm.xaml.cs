@@ -43,9 +43,9 @@ namespace ABServer
                     using (var db = new ClientsDBEntities())
                     {
                         client.Пароль = password;
-                        //db.Clients.Add(client);
-                        db.Entry(client).State = System.Data.EntityState.Added;
-                        db.ChangeTracker.DetectChanges();
+                        db.Clients.Add(client);
+                        //db.Entry(client).State = System.Data.EntityState.Added;
+                        //db.ChangeTracker.DetectChanges();
                         db.SaveChanges();
                     }
                     MessageBox.Show("Клиент успешно создан.", "Готово", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK);

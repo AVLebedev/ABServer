@@ -71,7 +71,16 @@ namespace ABServer
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //Проверка договоров клиентов по дате и вывод действующих клиентов
+            LoadClients();
+            //Запуск подключения
+            InitializeConnection();
+        }
+
+        /// <summary>
+        /// Проверка договоров клиентов по дате и вывод действующих клиентов
+        /// </summary>
+        public void LoadClients()
+        {
             using (var db = new ClientsDBEntities())
             {
                 var clientsList = db.Clients.Where(c => c.Активен == true);
@@ -79,14 +88,12 @@ namespace ABServer
                 {
                     //if (c.ValidateContract())
                     //{
-                        idsListBox.Items.Add(c.ClientId);
-                        namesListBox.Items.Add(c.НазваниеКлиента);
-                        stateListBox.Items.Add("");
+                    idsListBox.Items.Add(c.ClientId);
+                    namesListBox.Items.Add(c.НазваниеКлиента);
+                    stateListBox.Items.Add("");
                     //}
                 }
             }
-            //Запуск подключения
-            InitializeConnection();
         }  
 
 
