@@ -61,20 +61,11 @@ namespace ABServer.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на 192.168.1.68.
-        /// </summary>
-        internal static string ip {
-            get {
-                return ResourceManager.GetString("ip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на 1234.
         /// </summary>
-        internal static int port {
+        internal static string port {
             get {
-                return Convert.ToInt32(ResourceManager.GetObject("port", resourceCulture));
+                return ResourceManager.GetString("port", resourceCulture);
             }
         }
     }

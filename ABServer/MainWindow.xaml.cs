@@ -99,8 +99,7 @@ namespace ABServer
         {
             try
             {
-                IPAddress ipAddr = IPAddress.Parse(Properties.Resources.ip);
-                mainServer = new ChatServer(ipAddr);
+                mainServer = new ChatServer();
                 mainServer.StartListening();
                 return true;
             }
