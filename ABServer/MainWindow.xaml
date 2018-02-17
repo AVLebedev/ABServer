@@ -7,7 +7,7 @@
         <Button Name="clientsDBButton" Content="База данных клиентов" HorizontalAlignment="Left" Margin="456,50,0,0" VerticalAlignment="Top" Width="308" Height="43" Click="clientsDBButton_Click" FontSize="14"/>
         <Button Name="newClientButton" Content="Добавить клиента" HorizontalAlignment="Left" Margin="456,123,0,0" VerticalAlignment="Top" Width="308" Height="43" Click="newClientButton_Click" FontSize="14"/>
         <Button Name="mapButton" Content="Карта" HorizontalAlignment="Left" Margin="456,196,0,0" VerticalAlignment="Top" Width="308" Height="43" FontSize="14"/>
-        <Button Name="contractsButton" Content="Договора" HorizontalAlignment="Left" Margin="456,269,0,0" VerticalAlignment="Top" Width="308" Height="43" FontSize="14"/>
+        <Button Name="contractsButton" Content="Договора" HorizontalAlignment="Left" Margin="456,269,0,0" VerticalAlignment="Top" Width="308" Height="43" FontSize="14" Click="contractsButton_Click"/>
         <Button Name="exitButton" Content="Выход" HorizontalAlignment="Left" Margin="456,342,0,0" VerticalAlignment="Top" Width="308" Height="43" Click="exitButton_Click" FontSize="14"/>
         
         <TextBox IsReadOnly="True" Padding="4 2 0 0" Background="#FF4B4141" Name="logLabel" ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Text="WWWWWWWWAWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWAA" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="408" Foreground="#FF17B852" Height="108" FontStyle="Italic"/>

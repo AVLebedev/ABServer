@@ -1,0 +1,17 @@
+﻿<Window x:Class="ABServer.ClientsContracts"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Шаблоны договоров" Height="459" Width="Auto">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <!--<Button Name="btnUploadTmpl" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Загрузить шаблон" />-->
+        <Menu Height="25" VerticalAlignment="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Шаблоны договоров" >
+                    <MenuItem Header="Загрузить шаблон..." Click="MenuItem_Click"></MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit" ></MenuItem>
+            <MenuItem Header="View" ></MenuItem>
+        </Menu>
+    </Grid>
+</Window>

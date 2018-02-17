@@ -120,6 +120,12 @@ namespace ABServer
         private void optionsBtn_Click(object sender, RoutedEventArgs e)
         {
         }
+
+        private void contractsButton_Click(object sender, RoutedEventArgs e)
+        {
+            ClientsContracts clientConracts = new ClientsContracts();
+            clientConracts.Show();
+        }
 /*
         /// <summary>
         /// Получает сигнал от клиента, возвращает id клиента
