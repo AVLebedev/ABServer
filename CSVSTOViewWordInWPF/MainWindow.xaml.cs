@@ -57,6 +57,7 @@ namespace CSVSTOViewWordInWPF
                 if (openFileDialog.FileName.Length > 0)
                 {
                     txbSelectedWordFile.Text = openFileDialog.FileName;
+                    viewDoc();
                 }
             }
         }
@@ -90,7 +91,7 @@ namespace CSVSTOViewWordInWPF
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error occurs, The error message is  " + ex.ToString());
+                MessageBox.Show("Ошибка:  " + ex.ToString());
                 return null;
             }
             finally
@@ -101,16 +102,14 @@ namespace CSVSTOViewWordInWPF
         }
 
         /// <summary>
-        ///  View Word Document in WPF DocumentView Control
+        ///  Просмотр документа
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnViewDoc_Click(object sender, RoutedEventArgs e)
+        private void viewDoc()
         {
             string wordDocument =txbSelectedWordFile.Text;
             if (string.IsNullOrEmpty(wordDocument) || !File.Exists(wordDocument))
             {
-                MessageBox.Show("The file is invalid. Please select an existing file again.");
+                MessageBox.Show("Формат файла некорректен. Пожалуйста, выберите снова.");
             }
             else
             {

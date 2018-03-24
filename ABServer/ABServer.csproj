@@ -80,9 +80,6 @@
     <Compile Include="Clients.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ClientsContracts.xaml.cs">
-      <DependentUpon>ClientsContracts.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,10 +103,6 @@
       <DependentUpon>RegistrationForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="RequestWorker.cs" />
-    <Page Include="ClientsContracts.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ClientsViewForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -212,7 +205,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CSVSTOViewWordInWPF\CSVSTOViewWordInWPF.csproj">
+      <Project>{7f02e934-a016-42fe-afa2-095e9bfb546e}</Project>
+      <Name>CSVSTOViewWordInWPF</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -7,10 +7,10 @@
             <RowDefinition Height="70"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Name="lable1" Margin="3,6,0,0" Content="Word Document :" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <Label Name="lable1" Margin="3,6,0,0" Content="Расположение:" VerticalAlignment="Top" HorizontalAlignment="Left" />
         <TextBox  Name="txbSelectedWordFile" VerticalAlignment="Top"  HorizontalAlignment="Stretch" Margin="110,10,300,0" HorizontalContentAlignment="Left" />
-        <Button HorizontalAlignment="Right" VerticalAlignment="Top" Width="150" Content="Select Word File" Name="btnSelectWord" Margin="0,10,130,0" Click="btnSelectWord_Click" />
-        <Button HorizontalAlignment="Left" Margin="3,40,0,0" VerticalAlignment="Top" Content="View Word Doc" Width="100" Name="btnViewDoc" Click="btnViewDoc_Click" />
+        <Button HorizontalAlignment="Right" VerticalAlignment="Top" Width="150" Content="Выберите файл договора" Name="btnSelectWord" Margin="0,10,130,0" Click="btnSelectWord_Click" />
+        <!--<Button HorizontalAlignment="Left" Margin="3,40,0,0" VerticalAlignment="Top" Content="View Word Doc" Width="100" Name="btnViewDoc" Click="btnViewDoc_Click" />-->
         <DocumentViewer Grid.Row="1" Name="documentviewWord" VerticalAlignment="Top" HorizontalAlignment="Left"/>
     </Grid>
 </Window>
