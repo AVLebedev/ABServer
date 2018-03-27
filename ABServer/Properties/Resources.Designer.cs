@@ -59,14 +59,5 @@ namespace ABServer.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на 1234.
-        /// </summary>
-        internal static string port {
-            get {
-                return ResourceManager.GetString("port", resourceCulture);
-            }
-        }
     }
 }

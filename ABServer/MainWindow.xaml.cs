@@ -58,11 +58,6 @@ namespace ABServer
             }
         }
 
-        private void ipTextBox_GotFocus(object sender, RoutedEventArgs e)
-        {
-            logLabel.Text = "";
-        }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LoadClients();
@@ -92,9 +87,7 @@ namespace ABServer
 
 
 #region Сетевые и вспомогательные методы
-        
-        const int port = 1234;
-        ChatServer mainServer;
+        private ChatServer mainServer;
 
         bool StartServer()
         {
@@ -106,13 +99,15 @@ namespace ABServer
             }
             catch(Exception e)
             {
-                logLabel.Text = e.Message;
+                Logger.Log(e.Message);
                 return false;
             }
         }
 
         private void optionsBtn_Click(object sender, RoutedEventArgs e)
         {
+            Settings settingsWindow = new Settings(mainServer);
+            settingsWindow.Show();
         }
 
         private void contractsButton_Click(object sender, RoutedEventArgs e)
@@ -120,44 +115,6 @@ namespace ABServer
             var clientConracts = new CSVSTOViewWordInWPF.MainWindow();
             clientConracts.Show();
         }
-/*
-        /// <summary>
-        /// Получает сигнал от клиента, возвращает id клиента
-        /// </summary>
-        /// <returns></returns>
-        private int GetSignalFromClient()
-        {
-            StreamReader reader = new StreamReader();
-            try
-            {
-                int id = Convert.ToInt32(reader.ReadLine());
-                return id;
-            }
-            catch
-            {
-                return -1;
-            }
-        } */
-      
-      /*  private string read()
-        {
-            try
-            {
-                string[] rtext = reader.ReadLine().Split(' ');
-                text_data.Text += "Переданные числа:" + Environment.NewLine;
-                foreach (string n in rtext)
-                {
-                    text_data.Text += n + ' ';
-                }
-                text_data.Text += Environment.NewLine;
-
-                return rtext.ToString();
-            }
-            catch
-            {
-                return "";
-            }
-        }*/
 
 #endregion
 

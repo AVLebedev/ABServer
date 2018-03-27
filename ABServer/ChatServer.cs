@@ -33,7 +33,7 @@ namespace ABServer
 
     public delegate void StatusChangedEventHandler(object sender, StatusChangedEventArgs e);
 
-    class ChatServer
+    public class ChatServer
     {
         
         public static Hashtable htUsers = new Hashtable(); 
@@ -66,9 +66,10 @@ namespace ABServer
         bool ServRunning = false;
 
         public void StartListening()
-        {
+        {            
+            int port = Properties.Settings.Default.Port;
             // Создание подключения
-            tlsClient = new TcpListener(ipAddress, Convert.ToInt32(Properties.Resources.port));
+            tlsClient = new TcpListener(ipAddress, port);
 
             // Старт
             tlsClient.Start();
@@ -78,6 +79,11 @@ namespace ABServer
 
             thrListener = new Thread(KeepListening);
             thrListener.Start();
+        }
+
+        public void StopListening()
+        {
+            ServRunning = false;
         }
         
         private void KeepListening()
