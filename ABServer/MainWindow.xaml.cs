@@ -11,12 +11,13 @@ using System.Windows;
 using CSVSTOViewWordInWPF;
 
 namespace ABServer
-{    
+{   
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+            Logger.mainWindow = this;
         }
 
         private void clientsDBButton_Click(object sender, RoutedEventArgs e)
@@ -48,12 +49,12 @@ namespace ABServer
             bool statusOK = StartServer();
             if (statusOK)
             {
-                logLabel.Text = "Сервер успешно запущен!";
+                Logger.Log("Сервер успешно запущен!");
                 RequestWorker.mainWindow = this;
             }
             else
             {
-                logLabel.Text = "Не удалось запустить сервер!";
+                Logger.Log("Не удалось запустить сервер!");
             }
         }
 

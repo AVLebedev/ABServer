@@ -81,7 +81,7 @@ namespace ABServer
                         db.SaveChanges();
                         workForm.idsListBox.Items.Add(id);
                         workForm.namesListBox.Items.Add(client.НазваниеКлиента);
-                        workForm.logLabel.Text += "\n" + client.НазваниеКлиента + " (id = " + id + ") успешно активирован.";
+                        Logger.Log(client.НазваниеКлиента + " (id = " + id + ") успешно активирован.");
                     }
                     swSender.WriteLine("1");
                     swSender.Flush();
@@ -105,7 +105,7 @@ namespace ABServer
                 {
                     clientName = db.Clients.FirstOrDefault(c => c.ClientId == id).НазваниеКлиента;
                 }
-                workForm.logLabel.Text += "\n" + clientName + " (id = " + id + ") отключился.";
+                Logger.Log(clientName + " (id = " + id + ") отключился.");
             }
             catch
             {
@@ -121,7 +121,7 @@ namespace ABServer
             {
                 clientName = db.Clients.FirstOrDefault(c => c.ClientId == id).НазваниеКлиента;
             }
-            workForm.logLabel.Text += "\n" + clientName + " (id = " + id + ") - тревога!";
+            Logger.Log(clientName + " (id = " + id + ") - тревога!");
         }
 
         private static void EnableClient(int id)
@@ -135,7 +135,7 @@ namespace ABServer
                 {
                     clientName = db.Clients.FirstOrDefault(c => c.ClientId == id).НазваниеКлиента;
                 }
-                workForm.logLabel.Text += "\n" + clientName + " (id = " + id + ") подключился.";
+                Logger.Log(clientName + " (id = " + id + ") подключился.");
             }
             catch { }
         }

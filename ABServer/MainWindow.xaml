@@ -10,7 +10,7 @@
         <Button Name="contractsButton" Content="Договора" HorizontalAlignment="Left" Margin="456,269,0,0" VerticalAlignment="Top" Width="308" Height="43" FontSize="14" Click="contractsButton_Click"/>
         <Button Name="exitButton" Content="Выход" HorizontalAlignment="Left" Margin="456,342,0,0" VerticalAlignment="Top" Width="308" Height="43" Click="exitButton_Click" FontSize="14"/>
         
-        <TextBox IsReadOnly="True" Padding="4 2 0 0" Background="#FF4B4141" Name="logLabel" ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Text="WWWWWWWWAWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWAA" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="408" Foreground="#FF17B852" Height="108" FontStyle="Italic"/>
+        <TextBox IsReadOnly="True" Padding="4 2 0 0" Background="#FF4B4141" Name="logLabel" ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="408" Foreground="#FF17B852" Height="108" FontStyle="Italic"/>
         
         <Label Content="Состояние клиентов" Background="#FFCFCFCF" BorderBrush="#FF355114" BorderThickness="4" HorizontalAlignment="Left" Margin="21,0,0,277" VerticalAlignment="Bottom" Width="146" FontSize="13" RenderTransformOrigin="0.5,0.5"/>
 
