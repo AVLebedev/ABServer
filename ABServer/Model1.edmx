@@ -24,6 +24,7 @@
           <Property Name="Телефон" Type="nvarchar" MaxLength="12" />
           <Property Name="Активен" Type="bit" Nullable="false" />
           <Property Name="РежимРаботы" Type="nvarchar" MaxLength="50" />
+          <Property Name="Вызовов" Type="int" Nullable="false" />
         </EntityType>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -48,6 +49,7 @@
           <Property Name="Телефон" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
           <Property Name="Активен" Type="Boolean" Nullable="false" />
           <Property Type="String" Name="РежимРаботы" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Вызовов" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -58,6 +60,7 @@
           <EntitySetMapping Name="Clients">
             <EntityTypeMapping TypeName="ClientsDBModel.Clients">
               <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="Вызовов" ColumnName="Вызовов" />
                 <ScalarProperty Name="РежимРаботы" ColumnName="РежимРаботы" />
                 <ScalarProperty Name="ClientId" ColumnName="ClientId" />
                 <ScalarProperty Name="Пароль" ColumnName="Пароль" />

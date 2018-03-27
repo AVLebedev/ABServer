@@ -18,7 +18,7 @@
             <Grid Background="#FF355114" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,-4,-4" Height="240" Width="292" >
                 <ListBox Name="idsListBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFCFCFCF" HorizontalAlignment="Left" Height="237" VerticalAlignment="Center" Width="30" Margin="0,1,0,2" FontSize="14"/>
                 <ListBox Name="namesListBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFCFCFCF" HorizontalAlignment="Left" Height="237" Margin="35,1,0,2" VerticalAlignment="Center" Width="219" FontSize="14"/>
-                <ListBox Name="stateListBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFCFCFCF" HorizontalAlignment="Left" Height="238" VerticalAlignment="Top" Width="29" Margin="259,0,0,0" FontSize="14"/>
+                <ListBox Name="stateListBox" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Background="#FFCFCFCF" HorizontalAlignment="Left" Height="238" VerticalAlignment="Top" Width="29" Margin="259,0,0,0" FontSize="14"></ListBox>
             </Grid>
         </Border>
         <Button Name="optionsBtn" Content="O" HorizontalAlignment="Right" VerticalAlignment="Top" Width="31" Height="26" Click="optionsBtn_Click"/>

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using CSVSTOViewWordInWPF;
+using ABServer.Controls;
 
 namespace ABServer
 {   
@@ -72,14 +73,14 @@ namespace ABServer
         {
             using (var db = new ClientsDBEntities())
             {
-                var clientsList = db.Clients.Where(c => c.Активен == true);
+                var clientsList = db.Clients.Where(c => c.Активен == true).ToList();
                 foreach (Clients c in clientsList)
                 {
                     //if (c.ValidateContract())
                     //{
                     idsListBox.Items.Add(c.ClientId);
                     namesListBox.Items.Add(c.НазваниеКлиента);
-                    stateListBox.Items.Add("");
+                    stateListBox.Items.Add(new StateLabel(StateLabel.States.Disconnected, c.ClientId));
                     //}
                 }
             }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ABServer.Controls;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -99,7 +100,7 @@ namespace ABServer
             try
             {
                 int index = workForm.idsListBox.Items.IndexOf(id);
-                workForm.stateListBox.Items[index] = "N";
+                (workForm.stateListBox.Items[index] as StateLabel).switchState(StateLabel.States.Disconnected);
                 string clientName;
                 using (var db = new ClientsDBEntities())
                 {
@@ -115,7 +116,7 @@ namespace ABServer
         private static void Alarm(int id)
         {
             int index = workForm.idsListBox.Items.IndexOf(id);
-            workForm.stateListBox.Items[index] = "A!";
+            (workForm.stateListBox.Items[index] as StateLabel).switchState(StateLabel.States.Alarm);
             string clientName;
             using (var db = new ClientsDBEntities())
             {
@@ -129,7 +130,7 @@ namespace ABServer
             try
             {
                 int index = workForm.idsListBox.Items.IndexOf(id);
-                workForm.stateListBox.Items[index] = "Y";
+                (workForm.stateListBox.Items[index] as StateLabel).switchState(StateLabel.States.Connected);
                 string clientName;
                 using (var db = new ClientsDBEntities())
                 {

@@ -26,5 +26,6 @@ namespace ABServer
         public string Телефон { get; set; }
         public bool Активен { get; set; }
         public string РежимРаботы { get; set; }
+        public int Вызовов { get; set; }
     }
 }
