@@ -23,14 +23,15 @@ namespace ABServer.Controls
             switch (state)
             {
                 case States.Connected:
-                    this.BorderBrush = null;
+                    this.BorderBrush = null; //= Brushes.Transparent;
                     this.Background = Brushes.Green;  
                     break;
                 case States.Disconnected:
-                    this.BorderBrush = null;
+                    this.BorderBrush = Brushes.Transparent;
                     this.Background = Brushes.Red;
                     break;
                 case States.Alarm:
+                    this.MouseDown += alarmHandler;
                     this.BorderBrush = Brushes.Red;
                     this.Background = Brushes.Yellow;
                     break;
@@ -39,6 +40,7 @@ namespace ABServer.Controls
 
         private void alarmHandler(object sender, RoutedEventArgs e)
         {
+            this.MouseDown -= alarmHandler;
             switchState(States.Connected);
             using (var db = new ClientsDBEntities())
             {

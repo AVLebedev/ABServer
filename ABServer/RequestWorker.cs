@@ -37,6 +37,11 @@ namespace ABServer
             swSender = new StreamWriter(tcpClient.GetStream());
         }
 
+        public void AlarmResponse()
+        {
+
+        }
+
         /// <summary>
         /// Выполняет анализ полученного от клиента сообщения и производит необходимые действия
         /// </summary>

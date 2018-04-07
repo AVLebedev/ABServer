@@ -3,6 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:ABServer"
         Title="Тревожная кнопка. Сервер" Height="465" Width="830" Loaded="Window_Loaded" MinWidth="830" MinHeight="465">
+    <Window.Resources>
+        <Style x:Key="_ListBoxItemStyle" TargetType="ListBoxItem">
+            <Style.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent" />
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black" />
+                <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="Transparent" />
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Button Name="clientsDBButton" Content="База данных клиентов" HorizontalAlignment="Left" Margin="456,50,0,0" VerticalAlignment="Top" Width="308" Height="43" Click="clientsDBButton_Click" FontSize="14"/>
         <Button Name="newClientButton" Content="Добавить клиента" HorizontalAlignment="Left" Margin="456,123,0,0" VerticalAlignment="Top" Width="308" Height="43" Click="newClientButton_Click" FontSize="14"/>
@@ -16,9 +25,9 @@
 
         <Border HorizontalAlignment="Left" VerticalAlignment="Bottom" BorderBrush="#FF355114" BorderThickness="4" Height="244" Margin="21,0,0,40" Width="296">
             <Grid Background="#FF355114" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,-4,-4" Height="240" Width="292" >
-                <ListBox Name="idsListBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFCFCFCF" HorizontalAlignment="Left" Height="237" VerticalAlignment="Center" Width="30" Margin="0,1,0,2" FontSize="14"/>
-                <ListBox Name="namesListBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFCFCFCF" HorizontalAlignment="Left" Height="237" Margin="35,1,0,2" VerticalAlignment="Center" Width="219" FontSize="14"/>
-                <ListBox Name="stateListBox" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Background="#FFCFCFCF" HorizontalAlignment="Left" Height="238" VerticalAlignment="Top" Width="29" Margin="259,0,0,0" FontSize="14"></ListBox>
+                <ListBox Name="idsListBox" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFCFCFCF" HorizontalAlignment="Left" Height="237" VerticalAlignment="Center" Width="30" Margin="0,1,0,2" FontSize="14"/>
+                <ListBox Name="namesListBox" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFCFCFCF" HorizontalAlignment="Left" Height="237" Margin="35,1,0,2" VerticalAlignment="Center" Width="219" FontSize="14"/>
+                <ListBox Name="stateListBox" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Background="#FFCFCFCF" HorizontalAlignment="Left" Height="238" VerticalAlignment="Top" Width="29" Margin="259,0,0,0" FontSize="14"></ListBox>
             </Grid>
         </Border>
         <Button Name="optionsBtn" Content="O" HorizontalAlignment="Right" VerticalAlignment="Top" Width="31" Height="26" Click="optionsBtn_Click"/>
