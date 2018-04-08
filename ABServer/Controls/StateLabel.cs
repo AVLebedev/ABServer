@@ -11,9 +11,11 @@ namespace ABServer.Controls
         public enum States { Connected, Disconnected, Alarm };
 
         private int clientId;
-        public StateLabel(States initState, int clientId)
+        private ChatServer chatServer;
+        public StateLabel(States initState, int clientId, ChatServer chatServer)
         {
             this.clientId = clientId;
+            this.chatServer = chatServer;
             BorderThickness = new System.Windows.Thickness(5);
             switchState(initState);
         }
@@ -48,6 +50,7 @@ namespace ABServer.Controls
                 client.Вызовов += 1;
                 db.SaveChanges();
             }
+            chatServer.AlarmResponse();
         }
     }
 }

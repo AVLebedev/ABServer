@@ -85,14 +85,23 @@ namespace ABServer
         {
             ServRunning = false;
         }
-        
+
+        private Connection newConnection;
         private void KeepListening()
         {
             while (ServRunning == true)
             {
                 tcpClient = tlsClient.AcceptTcpClient();
-                Connection newConnection = new Connection(tcpClient);
+                newConnection = new Connection(tcpClient);
             }
+        }
+
+        /// <summary>
+        /// Отправка ответа клиенту, что сигнал тревоги принят и обработан
+        /// </summary>
+        public void AlarmResponse()
+        {
+            newConnection.AlarmResponse();
         }
     }
 
@@ -103,10 +112,12 @@ namespace ABServer
         private StreamReader srReceiver;
         private StreamWriter swSender;
         private string strResponse;
+        private RequestWorker worker;
 
         public Connection(TcpClient tcpCon)
         {
             tcpClient = tcpCon;
+            worker = new RequestWorker(tcpClient);
             thrSender = new Thread(AcceptClientRequest);
             thrSender.Start();
         }
@@ -120,29 +131,27 @@ namespace ABServer
 
         private void AcceptClientRequest()
         {
-            RequestWorker worker = new RequestWorker(tcpClient);
             srReceiver = new System.IO.StreamReader(tcpClient.GetStream());
             worker.AnalizeRequest(srReceiver.ReadLine());
-            try
+            
+            while ((strResponse = srReceiver.ReadLine()) != "")
             {
-                while ((strResponse = srReceiver.ReadLine()) != "")
+                if (strResponse == null)
+                { 
+                    return;
+                }
+                else
                 {
-                    if (strResponse == null)
-                    { 
-                        return;
-                    }
-                    else
-                    {
-                        worker.AnalizeRequest(strResponse);                        
-                    }
+                    worker.AnalizeRequest(strResponse);                        
                 }
             }
-            catch
-            {
-                return;
-            }
         }
-
         
+        /// <summary>
+        /// Отправка ответа клиенту, что сигнал тревоги принят и обработан
+        /// </summary>
+        public void AlarmResponse() {
+            worker.ResponseOk();
+        }
     }
 }

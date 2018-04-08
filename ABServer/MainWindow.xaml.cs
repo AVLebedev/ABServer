@@ -15,38 +15,16 @@ namespace ABServer
 {   
     public partial class MainWindow : Window
     {
+        private ChatServer mainServer;
         public MainWindow()
         {
             InitializeComponent();
             Logger.mainWindow = this;
-        }
-
-        private void clientsDBButton_Click(object sender, RoutedEventArgs e)
-        {
-            ClientsViewForm viewForm = new ClientsViewForm();
-            viewForm.Show();
-        }
-
-        private void exitButton_Click(object sender, RoutedEventArgs e)
-        {
-            //mainServer.StopConnection();
-            //this.Close();
-            Application.Current.Shutdown();
-        }
-
-        private void newClientButton_Click(object sender, RoutedEventArgs e)
-        {
-            RegistrationForm regForm = new RegistrationForm();
-            regForm.Show();
-        }
-
-        private void connectButton_Click(object sender, RoutedEventArgs e)
-        {
-            InitializeConnection();
-        }
+        }        
 
         private void InitializeConnection()
         {
+            mainServer = new ChatServer();
             bool statusOK = StartServer();
             if (statusOK)
             {
@@ -61,9 +39,9 @@ namespace ABServer
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            LoadClients();
             //Запуск подключения
             InitializeConnection();
+            LoadClients();
         }
 
         /// <summary>
@@ -80,21 +58,17 @@ namespace ABServer
                     //{
                     idsListBox.Items.Add(c.ClientId);
                     namesListBox.Items.Add(c.НазваниеКлиента);
-                    stateListBox.Items.Add(new StateLabel(StateLabel.States.Disconnected, c.ClientId));
+                    stateListBox.Items.Add(new StateLabel(StateLabel.States.Disconnected, c.ClientId, mainServer));
                     //}
                 }
             }
         }  
-
-
-#region Сетевые и вспомогательные методы
-        private ChatServer mainServer;
+        
 
         bool StartServer()
         {
             try
             {
-                mainServer = new ChatServer();
                 mainServer.StartListening();
                 return true;
             }
@@ -105,10 +79,33 @@ namespace ABServer
             }
         }
 
+    #region Обработчики кнопок в меню
+
         private void optionsBtn_Click(object sender, RoutedEventArgs e)
         {
             Settings settingsWindow = new Settings(mainServer);
             settingsWindow.Show();
+        }
+        private void clientsDBButton_Click(object sender, RoutedEventArgs e)
+        {
+            ClientsViewForm viewForm = new ClientsViewForm();
+            viewForm.Show();
+        }
+
+        private void exitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void newClientButton_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrationForm regForm = new RegistrationForm();
+            regForm.Show();
+        }
+
+        private void connectButton_Click(object sender, RoutedEventArgs e)
+        {
+            InitializeConnection();
         }
 
         private void contractsButton_Click(object sender, RoutedEventArgs e)
@@ -117,7 +114,6 @@ namespace ABServer
             clientConracts.Show();
         }
 
-#endregion
-
+    #endregion
     }
 }

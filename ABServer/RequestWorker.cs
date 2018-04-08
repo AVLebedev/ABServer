@@ -20,15 +20,6 @@ namespace ABServer
             }
         }
 
-        /*private TcpClient tcpClient;
-        public  TcpClient clientTcp
-        {
-            set
-            {
-                this.tcpClient = value;
-            }
-        }*/
-
         private StreamReader srReceiver;
         private StreamWriter swSender;
         public RequestWorker(TcpClient tcpClient)
@@ -37,9 +28,10 @@ namespace ABServer
             swSender = new StreamWriter(tcpClient.GetStream());
         }
 
-        public void AlarmResponse()
+        public void ResponseOk()
         {
-
+            swSender.WriteLine("ok");
+            swSender.Flush();
         }
 
         /// <summary>
@@ -91,6 +83,7 @@ namespace ABServer
                     }
                     swSender.WriteLine("1");
                     swSender.Flush();
+                    Logger.Log(String.Format("{0} (id={1}) активирован.", client.НазваниеКлиента, client.ClientId));
                 }
                 else
                 {
