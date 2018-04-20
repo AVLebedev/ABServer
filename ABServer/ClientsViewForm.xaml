@@ -4,16 +4,7 @@
         Title="Просмотр клиентов" Height="459" Width="990" Loaded="Window_Loaded" Closing="Window_Closing"        
         Icon="Resources/icon.ico">
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <DataGrid CanUserDeleteRows="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="dataGrid" AutoGenerateColumns="True" Margin="0,0,0,0" CellEditEnding="dataGrid_CellEditEnding">
-            <!--<DataGridTemplateColumn>
-                <DataGridTemplateColumn.CellTemplate>
-                    <DataTemplate>
-                        <Button Content="Удалить" Click="deleteButton_Click" />
-                    </DataTemplate>
-                </DataGridTemplateColumn.CellTemplate>
-            </DataGridTemplateColumn>-->
-        </DataGrid>
+        <DataGrid CanUserDeleteRows="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="dataGrid" AutoGenerateColumns="True" Margin="0,0,0,0" CellEditEnding="dataGrid_CellEditEnding" />
         <Button Name="saveBtn" Content="Сохранить" HorizontalAlignment="Right" VerticalAlignment="Top" Width="96" Height="25" FontSize="13" Click="saveBtn_Click"/>
-        
     </Grid>
 </Window>

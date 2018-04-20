@@ -51,15 +51,15 @@ namespace ABServer
         {
             using (var db = new ClientsDBEntities())
             {
+                idsListBox.Items.Clear();
+                namesListBox.Items.Clear();
+                stateListBox.Items.Clear();
                 var clientsList = db.Clients.Where(c => c.Активен == true).ToList();
                 foreach (Clients c in clientsList)
                 {
-                    //if (c.ValidateContract())
-                    //{
                     idsListBox.Items.Add(c.ClientId);
                     namesListBox.Items.Add(c.НазваниеКлиента);
                     stateListBox.Items.Add(new StateLabel(StateLabel.States.Disconnected, c.ClientId, mainServer));
-                    //}
                 }
             }
         }  
@@ -88,7 +88,7 @@ namespace ABServer
         }
         private void clientsDBButton_Click(object sender, RoutedEventArgs e)
         {
-            ClientsViewForm viewForm = new ClientsViewForm();
+            ClientsViewForm viewForm = new ClientsViewForm(this);
             viewForm.Show();
         }
 

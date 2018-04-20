@@ -26,12 +26,14 @@ namespace ABServer
         private ClientsDBEntities db = new ClientsDBEntities();
         private List<Clients> clients;
         private bool hasChangesCommitted = true;
+        private MainWindow mainWindow;
 
-        public ClientsViewForm()
+        public ClientsViewForm(MainWindow mainWindow)
         {
             InitializeComponent();
             clients = db.Clients.Select(c => c).ToList();
             dataGrid.ItemsSource = clients;
+            this.mainWindow = mainWindow;
         }
 
         private void DetectChanges()
@@ -114,6 +116,7 @@ namespace ABServer
         {            
             this.Title = this.Title.TrimEnd(new char[] { ' ', '*' });
             saveChanges();
+            mainWindow.Dispatcher.Invoke(new Action(() => { mainWindow.LoadClients(); }));
             MessageBox.Show("Изменения успешно сохранены", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);            
         }
 
