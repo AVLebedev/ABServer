@@ -50,6 +50,7 @@
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
@@ -102,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Documentation\ReadMe.htm" />
+    <Resource Include="Resources\icon.ico" />
     <Resource Include="Documentation\ReadMe_files\colorschememapping.xml" />
     <Resource Include="Documentation\ReadMe_files\filelist.xml" />
     <Resource Include="Documentation\ReadMe_files\image001.png" />

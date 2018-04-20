@@ -2,7 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:ABServer"
-        Title="Тревожная кнопка. Сервер" Height="465" Width="830" Loaded="Window_Loaded" MinWidth="830" MinHeight="465">
+        Title="Тревожная кнопка. Сервер" Height="465" Width="830" Loaded="Window_Loaded" MinWidth="830" MinHeight="465"  
+        Icon="Resources/icon.ico">
     <Window.Resources>
         <Style x:Key="_ListBoxItemStyle" TargetType="ListBoxItem">
             <Style.Resources>
@@ -30,6 +31,8 @@
                 <ListBox Name="stateListBox" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Background="#FFCFCFCF" HorizontalAlignment="Left" Height="238" VerticalAlignment="Top" Width="29" Margin="259,0,0,0" FontSize="14"></ListBox>
             </Grid>
         </Border>
-        <Button Name="optionsBtn" Content="O" HorizontalAlignment="Right" VerticalAlignment="Top" Width="31" Height="26" Click="optionsBtn_Click"/>
+        <Button Name="optionsBtn" HorizontalAlignment="Right" VerticalAlignment="Top" Width="31" Height="26" Click="optionsBtn_Click">
+            <Image Width="Auto" Height="Auto" Source="/Resources/cogwheel.ico"></Image>
+        </Button>
     </Grid>
 </Window>
