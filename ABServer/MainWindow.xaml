@@ -14,24 +14,25 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Button Name="clientsDBButton" Content="База данных клиентов" HorizontalAlignment="Left" Margin="456,50,0,0" VerticalAlignment="Top" Width="308" Height="43" Click="clientsDBButton_Click" FontSize="14"/>
-        <Button Name="newClientButton" Content="Добавить клиента" HorizontalAlignment="Left" Margin="456,123,0,0" VerticalAlignment="Top" Width="308" Height="43" Click="newClientButton_Click" FontSize="14"/>
-        <Button Name="mapButton" Content="Карта" HorizontalAlignment="Left" Margin="456,196,0,0" VerticalAlignment="Top" Width="308" Height="43" FontSize="14"/>
-        <Button Name="contractsButton" Content="Договора" HorizontalAlignment="Left" Margin="456,269,0,0" VerticalAlignment="Top" Width="308" Height="43" FontSize="14" Click="contractsButton_Click"/>
-        <Button Name="exitButton" Content="Выход" HorizontalAlignment="Left" Margin="456,342,0,0" VerticalAlignment="Top" Width="308" Height="43" Click="exitButton_Click" FontSize="14"/>
-        
+        <Button Name="clientsDBButton" Content="База данных клиентов" HorizontalAlignment="Left" Margin="456,77,0,0" VerticalAlignment="Top" Width="308" Height="43" Click="clientsDBButton_Click" FontSize="14"/>
+        <Button Name="newClientButton" Content="Добавить клиента" HorizontalAlignment="Left" Margin="456,150,0,0" VerticalAlignment="Top" Width="308" Height="43" Click="newClientButton_Click" FontSize="14"/>
+        <!--<Button Name="mapButton" Content="Карта" HorizontalAlignment="Left" Margin="456,196,0,0" VerticalAlignment="Top" Width="308" Height="43" FontSize="14"/>-->
+        <!--<Button Name="optionsBtn" Content="Настройки" HorizontalAlignment="Left" Margin="456,196,0,0" VerticalAlignment="Top" Width="308" Height="43" FontSize="14" Click="optionsBtn_Click"/>-->
+        <Button Name="contractsButton" Content="Договоры" HorizontalAlignment="Left" Margin="456,227,0,0" VerticalAlignment="Top" Width="308" Height="43" FontSize="14" Click="contractsButton_Click"/>
+        <Button Name="exitButton" Content="Выход" HorizontalAlignment="Left" Margin="456,303,0,0" VerticalAlignment="Top" Width="308" Height="43" Click="exitButton_Click" FontSize="14"/>
+
         <TextBox IsReadOnly="True" Padding="4 2 0 0" Background="#FF4B4141" Name="logLabel" ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="408" Foreground="#FF17B852" Height="108" FontStyle="Italic"/>
-        
+
         <Label Content="Состояние клиентов" Background="#FFCFCFCF" BorderBrush="#FF355114" BorderThickness="4" HorizontalAlignment="Left" Margin="21,0,0,277" VerticalAlignment="Bottom" Width="146" FontSize="13" RenderTransformOrigin="0.5,0.5"/>
 
-        <Border HorizontalAlignment="Left" VerticalAlignment="Bottom" BorderBrush="#FF355114" BorderThickness="4" Height="244" Margin="21,0,0,40" Width="296">
-            <Grid Background="#FF355114" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,-4,-4" Height="240" Width="292" >
+        <Border HorizontalAlignment="Left" VerticalAlignment="Bottom" BorderBrush="#FF355114" BorderThickness="4" Height="244" Margin="21,0,0,40" Width="301">
+            <Grid Background="#FF355114" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,-4,-4" Height="240" Width="Auto" >
                 <ListBox Name="idsListBox" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFCFCFCF" HorizontalAlignment="Left" Height="237" VerticalAlignment="Center" Width="30" Margin="0,1,0,2" FontSize="14"/>
                 <ListBox Name="namesListBox" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFCFCFCF" HorizontalAlignment="Left" Height="237" Margin="35,1,0,2" VerticalAlignment="Center" Width="219" FontSize="14"/>
-                <ListBox Name="stateListBox" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Background="#FFCFCFCF" HorizontalAlignment="Left" Height="238" VerticalAlignment="Top" Width="29" Margin="259,0,0,0" FontSize="14"></ListBox>
+                <ListBox Name="stateListBox" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Background="#FFCFCFCF" HorizontalAlignment="Left" Height="238" VerticalAlignment="Top" Width="Auto" Margin="259,0,0,0" FontSize="14"></ListBox>
             </Grid>
         </Border>
-        <Button Name="optionsBtn" HorizontalAlignment="Right" VerticalAlignment="Top" Width="31" Height="26" Click="optionsBtn_Click">
+        <Button Name="optionsBtn" Margin="8" HorizontalAlignment="Right" VerticalAlignment="Top" Width="31" Height="26" Click="optionsBtn_Click">
             <Image Width="Auto" Height="Auto" Source="/Resources/cogwheel.ico"></Image>
         </Button>
     </Grid>

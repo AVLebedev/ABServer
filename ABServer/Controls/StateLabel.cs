@@ -50,6 +50,7 @@ namespace ABServer.Controls
                 client.Вызовов += 1;
                 db.SaveChanges();
             }
+            Logger.Log("Сигнал тревоги обработан!");
             chatServer.AlarmResponse();
         }
     }
