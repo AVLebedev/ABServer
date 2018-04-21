@@ -33,7 +33,6 @@ namespace ABServer
 
             if (password.Length == 0)
             {
-                //MessageBox.Show("Значение пароля не может быть пустым.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation, MessageBoxResult.Cancel);
                 ValidationSummary.Content = "Значение пароля не может быть пустым";
             }
             else        
@@ -44,8 +43,6 @@ namespace ABServer
                     {
                         client.Пароль = password;
                         db.Clients.Add(client);
-                        //db.Entry(client).State = System.Data.EntityState.Added;
-                        //db.ChangeTracker.DetectChanges();
                         db.SaveChanges();
                     }
                     MessageBox.Show("Клиент успешно создан.", "Готово", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK);
@@ -53,17 +50,11 @@ namespace ABServer
                 }
                 else
                 {
-                    //MessageBox.Show("Пароли не совпадают, повторите ввод.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation, MessageBoxResult.Cancel);
                     ValidationSummary.Content = "Пароли не совпадают, повторите ввод.";
                     passwordInput.Clear();
                     passwordRepeat.Clear();
                 }
             }
-        }
-
-        private void passwordInput_KeyDown(object sender, KeyEventArgs e)
-        {
-            
         }
 
         private void passwordInput_GotFocus(object sender, RoutedEventArgs e)

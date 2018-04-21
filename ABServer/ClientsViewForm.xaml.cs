@@ -58,17 +58,9 @@ namespace ABServer
             object newValue = getEditedValue(e.EditingElement);
 
             PropertyInfo propertyInfo = client.GetType().GetProperty(e.Column.Header.ToString());
-            //try
-            //{
-                propertyInfo.SetValue(client, Convert.ChangeType(newValue, propertyInfo.PropertyType), null);
-            //}
-            //catch (InvalidCastException exc)
-            //{
-            //    newValue = castValueFormat(newValue);
-            //}
+            propertyInfo.SetValue(client, Convert.ChangeType(newValue, propertyInfo.PropertyType), null);
 
             DetectChanges();
-            //db.SaveChanges();
         }
 
         /// <summary>
@@ -88,14 +80,6 @@ namespace ABServer
             
             return value;
         }
-
-        //private object castValueFormat(out object value)
-        //{
-        //    if (value.GetType() == typeof(int))
-        //    {
-        //        value = Convert.
-        //    }
-        //}
 
         /// <summary>
         /// Получает клиента из списка клиентов
@@ -136,19 +120,6 @@ namespace ABServer
                 MessageBox.Show("Изменения не удалось сохранить!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-        ///// <summary>
-        ///// Обработчик нажатия кнопки удаления
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //private void deleteButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    int clientId = (dataGrid.SelectedItem as Clients).ClientId;
-        //    Clients client = getClientById(clientId);
-        //    db.Clients.Remove(client);
-        //    hasChangesCommitted = false;
-        //}
 
         /// <summary>
         /// Обработчик закрытия окна
